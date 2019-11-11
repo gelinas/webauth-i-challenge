@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const Users = require('../users/users-model.js');
+const Users = require('../auth/authModel.js');
 
 module.exports = (req, res, next) => {
   let { username, password } = req.headers;

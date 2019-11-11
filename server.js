@@ -4,8 +4,8 @@ const helmet = require('helmet') // third-party secure middleware
 const logger = require('./api/logger.js'); // custom logger middleware
 
 const registerRouter = require('./auth/registerRouter.js');
-// const loginRouter = require('./auth/loginRouter.js');
-// const usersRouter = require('./users/usersRouter.js');
+const loginRouter = require('./auth/loginRouter.js');
+const usersRouter = require('./users/usersRouter.js');
 // const restrictedRouter = require('./users/restrictedRouter.js');
 
 const server = express();
@@ -22,8 +22,8 @@ server.get('/', logger('root api call'), (req, res) => {
 });
 
 server.use('/api/register', logger('registerRouter'), registerRouter);
-// server.use('/api/login', logger('loginRouter'), loginRouter);
-// server.use('/api/users', logger('usersRouter'), usersRouter);
+server.use('/api/login', logger('loginRouter'), loginRouter);
+server.use('/api/users', logger('usersRouter'), usersRouter);
 // server.use('/api/restricted', logger('restrictedRouter'), restrictedRouter);
 
 // export

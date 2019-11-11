@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const Users = require('../users/users-model.js');
-const requiresAuth = require('../api/requires-auth-middleware.js');
+const Users = require('../auth/authModel.js');
+// const requiresAuth = require('../api/requires-auth-middleware.js');
 
-router.post('/register', (req, res) => {
+router.post('/', (req, res) => {
   let user = req.body;
   // read a password from the body
   // hash the password using bcryptjs
